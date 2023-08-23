@@ -12,7 +12,7 @@ const App = () => {
 
   const isFav = (on, id) => {
     on === true
-      ? setFavImagesArr([...favImagesArr, id])
+      ? (favImagesArr.includes(id)? setFavImagesArr(favImagesArr) : setFavImagesArr([...favImagesArr, id]))
       : setFavImagesArr(removeArrWithId(favImagesArr, id));
     if (favImagesArr.length === 0) {
       setIsFavPhotoExist(false);
