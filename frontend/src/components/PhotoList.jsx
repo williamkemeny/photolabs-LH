@@ -7,7 +7,6 @@ const PhotoList = (props) => {
   return (
     <ul className="photo-list">
       {photos.map((photoItem) => {
-        console.log(photoItem);
         return (
           <PhotoListItem
             key={photoItem.id}
@@ -18,6 +17,7 @@ const PhotoList = (props) => {
             imageSource={photoItem.urls.full}
             profile={photoItem.user.profile}
             isFav={props.isFav}
+            pictureClick={props.pictureClick}
           />
         );
       })}
