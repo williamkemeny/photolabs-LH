@@ -1,19 +1,48 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import HomeRoute from "./routes/HomeRoute";
 import PhotoDetailsModal from "./routes/PhotoDetailsModal";
+import removeArrWithId from "./helper/removeArrWithId";
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
+  const [isFavPhotoExist, setIsFavPhotoExist] = useState(false);
+  const [favImagesArr, setFavImagesArr] = useState([]);
   const [modalCreate, setModalCreate] = useState(false);
-  const pictureClick = () => {
+  const [modalId, seModalId] = useState();
+
+  const isFav = (on, id) => {
+    on === true
+      ? setFavImagesArr([...favImagesArr, id])
+      : setFavImagesArr(removeArrWithId(favImagesArr, id));
+    if (favImagesArr.length === 0) {
+      setIsFavPhotoExist(false);
+    }
+  };
+
+  useEffect(() => {
+    if (favImagesArr.length > 0) {
+      setIsFavPhotoExist(true);
+    }
+  }, [favImagesArr]);
+
+  const pictureClick = (id) => {
     setModalCreate(!modalCreate);
+    seModalId(id);
   };
 
   return (
     <div className="App">
-      <HomeRoute pictureClick={pictureClick} />
+      <HomeRoute
+        pictureClick={pictureClick}
+        isFav={isFav}
+        isFavPhotoExist={isFavPhotoExist}
+      />
       {modalCreate ? (
-        <PhotoDetailsModal pictureClick={pictureClick} />
+        <PhotoDetailsModal
+          pictureClick={pictureClick}
+          modalId={modalId}
+          favImagesArr={favImagesArr}
+        />
       ) : (
         <div />
       )}
