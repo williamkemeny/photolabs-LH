@@ -9,7 +9,11 @@ const HomeRoute = (props) => {
   return (
     <div className="home-route">
       <TopNavigationBar isFavPhotoExist={props.isFavPhotoExist} />
-      <PhotoList isFav={props.isFav} pictureClick={props.pictureClick} />
+      <PhotoList
+        isFav={props.isFav}
+        pictureClick={props.pictureClick}
+        favImagesArr={props.favImagesArr}
+      />
     </div>
   );
 };

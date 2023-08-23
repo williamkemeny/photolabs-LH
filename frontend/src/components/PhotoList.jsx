@@ -17,6 +17,7 @@ const PhotoList = (props) => {
             imageSource={photoItem.urls.full}
             profile={photoItem.user.profile}
             isFav={props.isFav}
+            favImagesArr={props.favImagesArr}
             pictureClick={props.pictureClick}
           />
         );

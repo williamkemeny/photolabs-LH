@@ -3,6 +3,7 @@ import "../styles/PhotoList.scss";
 import "../styles/PhotoDetailsModal.scss";
 import closeSymbol from "../assets/closeSymbol.svg";
 import PhotoListItem from "../components/PhotoListItem";
+import PhotoFavButton from "../components/PhotoFavButton";
 import photos from "../mocks/photos.js";
 
 const PhotoDetailsModal = (props) => {
@@ -22,9 +23,14 @@ const PhotoDetailsModal = (props) => {
         </button>
       </div>
 
-      <span className="photo-details-modal__images">
+      <div className="photo-details-modal__images">
+        <PhotoFavButton
+          isFav={props.isFav}
+          id={photo[0].id}
+          favImagesArr={favImagesArr}
+        />
         <img
-          className="photo-details-modal__image"
+          className="photo-details-modal__image "
           src={photo[0].urls.regular}
           alt=""
         />
@@ -52,12 +58,14 @@ const PhotoDetailsModal = (props) => {
                 country={photoItem.location.country}
                 username={photoItem.user.username}
                 imageSource={photoItem.urls.full}
+                favImagesArr={favImagesArr}
+                isFav={props.isFav}
                 profile={photoItem.user.profile}
               />
             );
           })}
         </ul>
-      </span>
+      </div>
     </div>
   );
 };

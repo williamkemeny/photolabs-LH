@@ -3,13 +3,14 @@ import FavIcon from "./FavIcon";
 import "../styles/PhotoFavButton.scss";
 
 const PhotoFavButton = (props) => {
-  const [selected, setSelected] = useState(false);
+  const { favImagesArr, id } = props;
+  const [selected, setSelected] = useState(
+    favImagesArr.includes(id) ? true : false
+  );
 
   const handleClick = () => {
     setSelected(!selected);
-    selected === true
-      ? props.isFav(false, props.id)
-      : props.isFav(true, props.id);
+    selected === true ? props.isFav(false, id) : props.isFav(true, id);
   };
 
   return (
