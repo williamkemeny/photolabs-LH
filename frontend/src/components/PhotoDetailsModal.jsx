@@ -2,8 +2,8 @@ import React from "react";
 import "../styles/PhotoList.scss";
 import "../styles/PhotoDetailsModal.scss";
 import closeSymbol from "../assets/closeSymbol.svg";
-import PhotoListItem from "../components/PhotoListItem";
-import PhotoFavButton from "../components/PhotoFavButton";
+import PhotoListItem from "./PhotoListItem";
+import PhotoFavButton from "./PhotoFavButton";
 import photos from "../mocks/photos.js";
 
 const PhotoDetailsModal = (props) => {
