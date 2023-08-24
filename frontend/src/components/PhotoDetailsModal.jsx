@@ -4,12 +4,11 @@ import "../styles/PhotoDetailsModal.scss";
 import closeSymbol from "../assets/closeSymbol.svg";
 import PhotoListItem from "./PhotoListItem";
 import PhotoFavButton from "./PhotoFavButton";
-import photos from "../mocks/photos.js";
 
 const PhotoDetailsModal = (props) => {
-  const { modalId, favImagesArr } = props;
+  const { modalId, favImagesArr, photos } = props;
   const photo = photos.filter((photo) => photo.id === modalId);
-  const similarPhotos = Object.values(photo[0].similarPhotos);
+  const similarPhotos = Object.values(photo[0].similar_photos);
 
   return (
     <div className="photo-details-modal">

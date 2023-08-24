@@ -1,12 +1,14 @@
 import React from "react";
 import PhotoListItem from "./PhotoListItem";
 import "../styles/PhotoList.scss";
-import photos from "../mocks/photos.js";
+import useApplicationData from "../hooks/useApplicationData";
 
 const PhotoList = (props) => {
+  const { photos } = useApplicationData();
+  let loadPhotos = props.topicSelected ? props.topicPhotos : photos;
   return (
     <ul className="photo-list">
-      {photos.map((photoItem) => {
+      {loadPhotos.map((photoItem) => {
         return (
           <PhotoListItem
             key={photoItem.id}

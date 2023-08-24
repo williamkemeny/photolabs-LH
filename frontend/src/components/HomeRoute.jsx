@@ -1,10 +1,8 @@
 import React from "react";
 import PhotoList from "./PhotoList";
 import TopNavigationBar from "./TopNavigationBar";
-
 import "../styles/HomeRoute.scss";
 
-// Note: Rendering a single component to build components in isolation
 const HomeRoute = (props) => {
   return (
     <div className="home-route">
@@ -13,6 +11,8 @@ const HomeRoute = (props) => {
         isFav={props.isFav}
         pictureClick={props.pictureClick}
         favImagesArr={props.favImagesArr}
+        topicPhotos={props.topicPhotos}
+        topicSelected={props.topicSelected}
       />
     </div>
   );

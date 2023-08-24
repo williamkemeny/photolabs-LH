@@ -1,7 +1,7 @@
 import React from "react";
 import HomeRoute from "./components/HomeRoute";
 import PhotoDetailsModal from "./components/PhotoDetailsModal";
-import useApplicationData from "hooks/useApplicationData";
+import useApplicationData from "./hooks/useApplicationData";
 
 const App = () => {
   const {
@@ -11,6 +11,9 @@ const App = () => {
     modalId,
     isFav,
     pictureClick,
+    photos,
+    topicPhotos,
+    topicSelected,
   } = useApplicationData();
 
   return (
@@ -20,9 +23,12 @@ const App = () => {
         isFav={isFav}
         isFavPhotoExist={isFavPhotoExist}
         favImagesArr={favImagesArr}
+        topicPhotos={topicPhotos}
+        topicSelected={topicSelected}
       />
       {modalCreate ? (
         <PhotoDetailsModal
+          photos={photos}
           pictureClick={pictureClick}
           modalId={modalId}
           favImagesArr={favImagesArr}
