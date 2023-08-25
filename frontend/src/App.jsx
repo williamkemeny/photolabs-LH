@@ -13,7 +13,9 @@ const App = () => {
     pictureClick,
     photos,
     topicPhotos,
+    topics,
     topicSelected,
+    topicClick,
   } = useApplicationData();
 
   return (
@@ -25,6 +27,8 @@ const App = () => {
         favImagesArr={favImagesArr}
         topicPhotos={topicPhotos}
         topicSelected={topicSelected}
+        topics={topics}
+        topicClick={topicClick}
       />
       {modalCreate ? (
         <PhotoDetailsModal

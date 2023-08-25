@@ -6,9 +6,7 @@ const PhotoListItem = (props) => {
   const { city, country, username, imageSource, profile, id, isFav } = props;
 
   const handleClick = () => {
-    if (props.pictureClick !== undefined) {
-      props.pictureClick(id);
-    }
+    props.pictureClick(id);
   };
 
   return (

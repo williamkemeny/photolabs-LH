@@ -1,20 +1,19 @@
 import React from "react";
 import TopicListItem from "./TopicListItem";
 import "../styles/TopicList.scss";
-import useApplicationData from "../hooks/useApplicationData";
 
-const TopicList = () => {
-  const { topics, topicClick } = useApplicationData();
+const TopicList = (props) => {
   return (
     <div className="top-nav-bar__topic-list">
-      {topics.map((TopicItem) => {
+      {props.topics.map((TopicItem) => {
         return (
           <TopicListItem
             key={TopicItem.id}
-            id={TopicItem.id}
+            topicId={TopicItem.id}
             slug={TopicItem.slug}
             title={TopicItem.title}
-            topicClick={topicClick}
+            onTopicSelect={props.onTopicSelect}
+            topicClick={props.topicClick}
           />
         );
       })}

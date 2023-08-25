@@ -6,7 +6,12 @@ import "../styles/HomeRoute.scss";
 const HomeRoute = (props) => {
   return (
     <div className="home-route">
-      <TopNavigationBar isFavPhotoExist={props.isFavPhotoExist} />
+      <TopNavigationBar
+        onTopicSelect={props.topicSelected}
+        isFavPhotoExist={props.isFavPhotoExist}
+        topics={props.topics}
+        topicClick={props.topicClick}
+      />
       <PhotoList
         isFav={props.isFav}
         pictureClick={props.pictureClick}

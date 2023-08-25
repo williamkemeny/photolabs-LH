@@ -29,10 +29,14 @@ const reducer = (state, action) => {
     case ACTIONS.FAVOURITE_FALSE:
       return { ...state, isFavPhotoExist: false };
     case ACTIONS.MODAL:
+      console.log("modalCreate", action);
       return { ...state, modalCreate: !state.modalCreate };
     case ACTIONS.TOPIC_SELECTED:
+      console.log("action", action);
+      console.log("state", state);
       return { ...state, topicSelected: !state.topicSelected };
     case ACTIONS.MODAL_ID:
+      console.log("modalId Action", action);
       return { ...state, modalId: action.id };
     case ACTIONS.TOPIC_ID:
       return { ...state, topicId: action.id };
@@ -76,10 +80,6 @@ const useApplicationData = () => {
   const topicClick = (id) => {
     dispatch({ type: "topic_selected" });
     dispatch({ type: "topic_id", id });
-
-    console.log("topicSelected: " + state.topicSelected);
-    console.log("topicId: " + state.topicId);
-    console.log(state.topicPhotos[0]);
   };
 
   useEffect(() => {

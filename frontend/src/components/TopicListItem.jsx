@@ -2,15 +2,13 @@ import React from "react";
 import "../styles/TopicListItem.scss";
 
 const TopicListItem = (props) => {
-  const { id, title } = props;
-
   const handleClick = () => {
-    props.topicClick(id);
+    props.topicClick(props.topicId);
   };
 
   return (
     <div className="topic-list__item">
-      <span onClick={handleClick}>{title}</span>
+      <span onClick={handleClick}>{props.title}</span>
     </div>
   );
 };
