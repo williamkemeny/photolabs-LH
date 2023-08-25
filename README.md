@@ -1,5 +1,6 @@
 # react-photolabs
 The PhotoLabs project for the Web Development React course programming.
+![Uploading Screen Shot 2023-08-25 at 9.03.54 AM.png…]()
 
 # Photolabs
 
