@@ -1,6 +1,6 @@
 # react-photolabs
-The PhotoLabs project for the Web Development React course programming.
-![Uploading Screen Shot 2023-08-25 at 9.03.54 AM.png…]()
+The PhotoLabs project for the Web Development React course programming. Started code was forked from LightHouse Labs.
+<img width="1680" alt="Screen Shot 2023-08-25 at 9 03 54 AM" src="https://github.com/williamkemeny/photolabs-LH/assets/83621324/33e5c526-7535-449f-ab43-adc0fed481e8">
 
 # Photolabs
 
