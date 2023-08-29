@@ -3,7 +3,6 @@ import PhotoListItem from "./PhotoListItem";
 import "../styles/PhotoList.scss";
 import useApplicationData from "../hooks/useApplicationData";
 
-//comment
 const PhotoList = (props) => {
   const { photos } = useApplicationData();
   let loadPhotos = props.topicSelected ? props.topicPhotos : photos;
