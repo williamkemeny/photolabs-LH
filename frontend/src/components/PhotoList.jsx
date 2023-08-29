@@ -4,11 +4,31 @@ import "../styles/PhotoList.scss";
 import useApplicationData from "../hooks/useApplicationData";
 
 const PhotoList = (props) => {
+  const checkSelectOption = (photo) => {
+    if (props.selectOption === "City") {
+      return photo.location.city
+        .toLowerCase()
+        .includes(props.searchBar.toLowerCase());
+    }
+    if (props.selectOption === "Country") {
+      return photo.location.country
+        .toLowerCase()
+        .includes(props.searchBar.toLowerCase());
+    }
+    if (props.selectOption === "Username") {
+      return photo.user.username
+        .toLowerCase()
+        .includes(props.searchBar.toLowerCase());
+    }
+  };
   const { photos } = useApplicationData();
   let loadPhotos = props.topicSelected ? props.topicPhotos : photos;
+  let loadPhotosFiltered = loadPhotos.filter((photo) =>
+    checkSelectOption(photo)
+  );
   return (
     <ul className="photo-list">
-      {loadPhotos.map((photoItem) => {
+      {loadPhotosFiltered.map((photoItem) => {
         return (
           <PhotoListItem
             key={photoItem.id}
