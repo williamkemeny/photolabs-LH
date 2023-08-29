@@ -11,6 +11,8 @@ const HomeRoute = (props) => {
         isFavPhotoExist={props.isFavPhotoExist}
         topics={props.topics}
         topicClick={props.topicClick}
+        handleChange={props.handleChange}
+        handleChange2={props.handleChange2}
       />
       <PhotoList
         isFav={props.isFav}
@@ -18,6 +20,8 @@ const HomeRoute = (props) => {
         favImagesArr={props.favImagesArr}
         topicPhotos={props.topicPhotos}
         topicSelected={props.topicSelected}
+        searchBar={props.searchBar}
+        selectOption={props.selectOption}
       />
     </div>
   );
