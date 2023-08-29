@@ -13,6 +13,8 @@ const ACTIONS = {
   SET_TOPIC_DATA: "set_topic_data",
   PHOTOS_BY_TOPIC: "photos_by_topic",
   TOPIC_SELECTED: "topic_selected",
+  SEARCH_BAR: "search_bar",
+  SELECT_OPTION: "select_option",
 };
 
 const reducer = (state, action) => {
@@ -46,6 +48,10 @@ const reducer = (state, action) => {
       return { ...state, topicData: action.payload };
     case ACTIONS.PHOTOS_BY_TOPIC:
       return { ...state, topicPhotos: action.payload };
+    case ACTIONS.SEARCH_BAR:
+      return { ...state, searchBar: action.searchBar };
+    case ACTIONS.SELECT_OPTION:
+      return { ...state, selectOption: action.selectOption };
     default:
       return state;
   }
@@ -62,6 +68,8 @@ const useApplicationData = () => {
     photoData: [],
     topicData: [],
     topicPhotos: [],
+    searchBar: "",
+    selectOption: "City",
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -76,6 +84,15 @@ const useApplicationData = () => {
     dispatch({ type: "modal" });
     dispatch({ type: "modal_ID", id });
   });
+
+  const handleChange = (event) => {
+    dispatch({ type: "search_bar", searchBar: event });
+  };
+
+  const handleChange2 = (event) => {
+    console.log(event);
+    dispatch({ type: "select_option", selectOption: event });
+  };
 
   const topicClick = (id) => {
     dispatch({ type: "topic_selected" });
@@ -126,6 +143,10 @@ const useApplicationData = () => {
     topics: state.topicData,
     topicPhotos: state.topicPhotos,
     topicSelected: state.topicSelected,
+    handleChange,
+    handleChange2,
+    searchBar: state.searchBar,
+    selectOption: state.selectOption,
   };
 };
 
