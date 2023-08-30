@@ -16,6 +16,10 @@ const App = () => {
     topics,
     topicSelected,
     topicClick,
+    searchBar,
+    selectOption,
+    handleChange,
+    handleChange2,
   } = useApplicationData();
 
   return (
@@ -29,6 +33,10 @@ const App = () => {
         topicSelected={topicSelected}
         topics={topics}
         topicClick={topicClick}
+        searchBar={searchBar}
+        selectOption={selectOption}
+        handleChange={handleChange}
+        handleChange2={handleChange2}
       />
       {modalCreate ? (
         <PhotoDetailsModal

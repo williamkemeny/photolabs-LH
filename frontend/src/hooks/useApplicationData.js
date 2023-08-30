@@ -31,14 +31,10 @@ const reducer = (state, action) => {
     case ACTIONS.FAVOURITE_FALSE:
       return { ...state, isFavPhotoExist: false };
     case ACTIONS.MODAL:
-      console.log("modalCreate", action);
       return { ...state, modalCreate: !state.modalCreate };
     case ACTIONS.TOPIC_SELECTED:
-      console.log("action", action);
-      console.log("state", state);
       return { ...state, topicSelected: !state.topicSelected };
     case ACTIONS.MODAL_ID:
-      console.log("modalId Action", action);
       return { ...state, modalId: action.id };
     case ACTIONS.TOPIC_ID:
       return { ...state, topicId: action.id };
@@ -90,7 +86,6 @@ const useApplicationData = () => {
   };
 
   const handleChange2 = (event) => {
-    console.log(event);
     dispatch({ type: "select_option", selectOption: event });
   };
 
